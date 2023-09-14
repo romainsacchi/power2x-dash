@@ -1,4 +1,3 @@
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -7,6 +6,7 @@ import plotly.express as px
 import pandas as pd
 import gunicorn                     #whilst your local machine's webserver doesn't need this, Heroku's linux webserver (i.e. dyno) does. I.e. This is your HTTP server
 from whitenoise import WhiteNoise
+
 
 # Function to remove common string items from x-axis labels
 def remove_common_items(labels):
