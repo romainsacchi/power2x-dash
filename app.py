@@ -40,10 +40,10 @@ filter_columns = [
     "CO2 origin", "CO2 allocation"
 ]
 contributor_columns = [
-    "boiler", "CCS/CCU", "CHP", "CNG pipeline", "electricity", "electrolyzer",
+    "boiler", "heat pump", "CCS/CCU", "CHP", "CNG pipeline", "electricity", "electrolyzer",
     "emissions", "EoL", "fuel cell", "hydrogen pipeline", "hydrogen production",
     "hydrogen storage", "hydrogen supply", "leak", "methanol production",
-    "methanol supply", "others", "SNG production", "SNG supply", "steam",
+    "methanol supply", "others", "SNG production", "SNG supply", "CNG supply", "steam",
     "transport", "water"
 ]
 
