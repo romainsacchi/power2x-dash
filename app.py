@@ -5,6 +5,8 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
+import gunicorn                     #whilst your local machine's webserver doesn't need this, Heroku's linux webserver (i.e. dyno) does. I.e. This is your HTTP server
+from whitenoise import WhiteNoise
 
 # Function to remove common string items from x-axis labels
 def remove_common_items(labels):
@@ -47,6 +49,12 @@ contributor_columns = [
 
 # Initialize Dash app
 app = dash.Dash(__name__)
+
+# Reference the underlying flask app (Used by gunicorn webserver in Heroku production deployment)
+server = app.server
+
+# Enable Whitenoise for serving static files from Heroku (the /static folder is seen as root by Heroku)
+server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
 
 # Function to generate dropdown options
 def generate_dropdown_options(data, column):
