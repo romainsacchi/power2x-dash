@@ -85,14 +85,20 @@ app.layout = html.Div([
 )
 def update_dropdown_options(*filter_values):
     filtered_data = gwp_data.copy()
-    
+
     # Apply filters from all dropdowns
     for col, values in zip(filter_columns, filter_values):
         if values:
             filtered_data = filtered_data[filtered_data[col].isin(values)]
-    
+
     # Generate new options for each dropdown based on filtered data
-    new_options = [generate_dropdown_options(filtered_data, col) for col in filter_columns]
+    new_options = []
+    for col, values in zip(filter_columns, filter_values):
+        if values is None:
+            new_options.append(generate_dropdown_options(filtered_data, col))
+        else:
+            new_options.append(dash.no_update)  # Do not update dropdowns that already have a selection
+
     return new_options
 
 # Callback for updating graph
