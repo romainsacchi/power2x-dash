@@ -6,7 +6,6 @@ from dash.dependencies import Input, Output
 import plotly.express as px
 import pandas as pd
 
-
 # Function to remove common string items from x-axis labels
 def remove_common_items(labels):
     words_list = [label.split(' | ') for label in labels]
