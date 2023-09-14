@@ -54,7 +54,7 @@ app = dash.Dash(__name__)
 server = app.server
 
 # Enable Whitenoise for serving static files from Heroku (the /static folder is seen as root by Heroku)
-server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
+#server.wsgi_app = WhiteNoise(server.wsgi_app, root='static/')
 
 # Function to generate dropdown options
 def generate_dropdown_options(data, column):
